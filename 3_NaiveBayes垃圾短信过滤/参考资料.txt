@@ -1,0 +1,8 @@
+http://blog.csdn.net/u010297828/article/details/50465263
+
+github:  多种分类方法  多种特征提取方法  
+
+数据格式清洗:  https://github.com/jiellin/messageProcess  多种方法 替换
+
+模型评价
+http://www.ganecheng.tech/blog/53219332.html

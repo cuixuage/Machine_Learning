@@ -35,14 +35,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2_feature.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2_feature.py">
+      <file leaf-file-name="2_CountVectorizer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2_CountVectorizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="801">
-              <caret line="167" column="49" lean-forward="false" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
+            <state relative-caret-position="-217">
+              <caret line="91" column="57" lean-forward="true" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
-                <element signature="e#2338#2361#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3_IGFeature.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3_IGFeature.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="14" column="84" lean-forward="false" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
+              <folding>
+                <element signature="e#15#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/Include_langconv.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding>
                 <element signature="e#47#72#0" expanded="true" />
               </folding>
@@ -127,6 +138,9 @@
       <find>Converter</find>
       <find>print</find>
       <find>open</find>
+      <find>CountVectorizer</find>
+      <find>writeFinalReswriteFinalRes</find>
+      <find>writeFinalRes</find>
     </findStrings>
     <replaceStrings>
       <replace>codecs.open</replace>
@@ -143,10 +157,12 @@
         <option value="$PROJECT_DIR$/Include_langconv.py" />
         <option value="$PROJECT_DIR$/1_keywords.py" />
         <option value="$PROJECT_DIR$/2_feature.py" />
+        <option value="$PROJECT_DIR$/2_CountVectorizer.py" />
+        <option value="$PROJECT_DIR$/3_IGFeature.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -167,6 +183,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,7 +195,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -198,7 +214,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.2_feature">
+  <component name="RunManager" selected="Python.2_CountVectorizer">
     <configuration name="1_keywords" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -216,6 +232,23 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="2_CountVectorizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="NaiveBayes_MessageFilter" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2_CountVectorizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="2_feature" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -228,7 +261,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="NaiveBayes_MessageFilter" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2_feature.py" />
+      <option name="SCRIPT_NAME" value="D:\Pycharm\projects\NaiveBayes_MessageFilter\2_CountVectorizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="3_IGFeature" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="NaiveBayes_MessageFilter" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3_IGFeature.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,16 +300,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.DataClean" />
       <item index="1" class="java.lang.String" itemvalue="Python.1_keywords" />
       <item index="2" class="java.lang.String" itemvalue="Python.2_feature" />
+      <item index="3" class="java.lang.String" itemvalue="Python.3_IGFeature" />
+      <item index="4" class="java.lang.String" itemvalue="Python.2_CountVectorizer" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.2_feature" />
-        <item index="1" class="java.lang.String" itemvalue="Python.1_keywords" />
-        <item index="2" class="java.lang.String" itemvalue="Python.DataClean" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.2_CountVectorizer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.3_IGFeature" />
+        <item index="2" class="java.lang.String" itemvalue="Python.2_feature" />
+        <item index="3" class="java.lang.String" itemvalue="Python.1_keywords" />
+        <item index="4" class="java.lang.String" itemvalue="Python.DataClean" />
       </list>
     </recent_temporary>
   </component>
@@ -280,15 +334,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15300146" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15153733" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2888889" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39555556" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -311,6 +365,138 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://E:/Python27/Lib/site-packages/sklearn/naive_bayes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20490">
+          <caret line="699" column="8" lean-forward="false" selection-start-line="699" selection-start-column="8" selection-end-line="699" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/scipy/sparse/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6120">
+          <caret line="213" column="11" lean-forward="false" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/sklearn/feature_extraction/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20040">
+          <caret line="686" column="8" lean-forward="false" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Include_langconv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="e#47#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Include_zh_wiki.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3_IGFeature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5790">
+          <caret line="204" column="14" lean-forward="false" selection-start-line="204" selection-start-column="4" selection-end-line="204" selection-end-column="14" />
+          <folding>
+            <element signature="e#15#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataClean.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4590">
+          <caret line="154" column="70" lean-forward="false" selection-start-line="154" selection-start-column="52" selection-end-line="154" selection-end-column="70" />
+          <folding>
+            <element signature="e#35#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1_keywords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding>
+            <element signature="e#15#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stopWord.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/sklearn/naive_bayes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20490">
+          <caret line="699" column="8" lean-forward="false" selection-start-line="699" selection-start-column="8" selection-end-line="699" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/scipy/sparse/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6120">
+          <caret line="213" column="11" lean-forward="false" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/sklearn/feature_extraction/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20040">
+          <caret line="686" column="8" lean-forward="false" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Include_langconv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="e#47#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Include_zh_wiki.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2_CountVectorizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3750">
+          <caret line="147" column="20" lean-forward="true" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DataClean.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4590">
@@ -381,13 +567,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2_feature.py">
+    <entry file="file://$PROJECT_DIR$/2_CountVectorizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="60" column="31" lean-forward="true" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <element signature="e#2338#2361#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -478,7 +663,7 @@
     <entry file="file://$PROJECT_DIR$/Include_langconv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="e#47#72#0" expanded="true" />
           </folding>
@@ -503,22 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2582">
           <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Python27/Lib/site-packages/sklearn/feature_extraction/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20040">
-          <caret line="686" column="8" lean-forward="false" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Python27/Lib/site-packages/scipy/sparse/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6120">
-          <caret line="213" column="11" lean-forward="false" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,13 +735,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2_feature.py">
+    <entry file="file://E:/Python27/Lib/site-packages/scipy/sparse/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="167" column="49" lean-forward="false" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
+        <state relative-caret-position="6120">
+          <caret line="213" column="11" lean-forward="false" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python27/Lib/site-packages/sklearn/feature_extraction/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20040">
+          <caret line="686" column="8" lean-forward="false" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3_IGFeature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="14" column="84" lean-forward="false" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
+          <folding>
+            <element signature="e#15#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2_CountVectorizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217">
+          <caret line="91" column="57" lean-forward="true" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <element signature="e#2338#2361#0" expanded="false" />
           </folding>
         </state>
       </provider>

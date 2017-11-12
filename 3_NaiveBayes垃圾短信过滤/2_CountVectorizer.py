@@ -65,7 +65,7 @@ def appendTestLabel(fout,preLabel,line,count,filename):
     fout.write(outStr + '\n')
 
 
-#navie bayes classifier
+# #navie bayes classifier
 # def nbClassifier(trainData,testData,trainLabel):
 #     vectorizer = CountVectorizer(binary=True)
 #     fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
@@ -83,9 +83,6 @@ def appendTestLabel(fout,preLabel,line,count,filename):
 #     clf = MultinomialNB(alpha = 0.01)
 #     clf.fit(fea_train,np.array(trainLabel))
 #     pred = clf.predict(fea_test)
-#     # print len(pred)
-#     # print type(pred)
-#     # totalScore(pred,testData,testLabel)
 #     writeFinalRes(pred, 'FinalResult.txt')
 
 
@@ -93,16 +90,6 @@ def nbClassifier(trainData,testData,trainLabel,testLabel):
     vectorizer = CountVectorizer(binary=True)
     fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
     fea_test = vectorizer.transform(testData);    #在训练语料中没有出现的词在后续调用转化方法时将被完全忽略  Not use the fit_transform
-
-#     tv=TfidfVectorizer()#该类会统计每个词语的tf-idf权值
-#     fea_train = tv.fit_transform(trainData)    #return feature vector 'fea_train' [n_samples,n_features]
-#     fea_test = tv.transform(testData);
-
-    # print 'Size of fea_train:' + repr(fea_train.shape)
-    # print 'Size of fea_test:' + repr(fea_test.shape)
-    # print fea_train.nnz
-    # print fea_test.nnz
-
     clf = MultinomialNB(alpha = 0.01)
     clf.fit(fea_train,np.array(trainLabel))
     pred = clf.predict(fea_test)
