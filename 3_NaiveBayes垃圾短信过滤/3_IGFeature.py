@@ -12,25 +12,24 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 # from wx import PreDatePickerCtrl
-# np.seterr(divide='ignore', invalid='ignore')   #94 row not warning  #往往是因为数组中存在0元素
+np.seterr(divide='ignore', invalid='ignore')   #94 row not warning  #往往是因为数组中存在0元素
 
 
-def loadTestData(filename):
+def loadClassData(filename):
     dataList  = []
-    for line in codecs.open('../data/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
+        dataList.append(int(line.strip()))  #要求编码格式为UTF-8(无BOM格式) 这样才能把stirng转化为int
+    return dataList
+
+def loadTrainData(filename):
+    dataList  = []
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
         dataList.append(line.strip())
     return dataList
 
-def loadClassData(filename):
-    dataList = []
-    for line in open('../data/' + filename, 'r').readlines():  # 读取分类序列
-        dataList.append(int(line.strip()))
-    return dataList
-
-
-def loadTrainData(filename):
-    dataList = []
-    for line in open('../data/' + filename, 'r').readlines():
+def loadTestData(filename):
+    dataList  = []
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
         dataList.append(line.strip())
     return dataList
 
@@ -225,26 +224,24 @@ def nbClassifer(feaTrain, trainLabel, feaTest):
 
 
 def classifier(trainData, testData, trainLabel, testLabel):
-    #     method = ['MI','IG','WLLR']
-    method = ['IG']
+    method = ['MI','IG','WLLR']
+    #method = ['IG']
+    #method = ['MI']
+    #method = ['WLLR']
+
     for m in method:
         t1 = time.time()
         termSet = feature_selection(trainData, trainLabel, m)
         print "len_termset：",len(termSet)
         dictionary = termSet[:50000]
-
         feaTrain = word2vec(trainData, dictionary)
         feaTest = word2vec(testData, dictionary)
         print feaTrain.shape
         print feaTest.shape
-        # pred = logisticReg(feaTrain, trainLabel, feaTest)
-        # totalScore(pred, testData, testLabel)
-        # pred = svmClassifer(feaTrain, trainLabel, feaTest)
-        # totalScore(pred, testData, testLabel)
         pred = nbClassifer(feaTrain, trainLabel, feaTest)
         totalScore(pred, testData, testLabel)
-        # t2 = time.time()
-        # print t2 - t1
+        t2 = time.time()
+        print t2 - t1,'s'
 
 
 # 计算F值，并找出预测错误的信息保存在文件中
@@ -274,8 +271,8 @@ def totalScore(pred, x_test, y_test):
 
     rb_pr = 1.0 * D / (B + D)
     rb_re = 1.0 * D / (C + D)
-    rt_pr = 1.0 * A / (A + C)
-    rt_re = 1.0 * A / (A + B)
+    # rt_pr = 1.0 * A / (A + C)
+    # rt_re = 1.0 * A / (A + B)
     print  "Recall:",rb_re
     print  "Precision:",rb_pr
     # Frb = 0.65 * rb_pr + 0.35 * rb_re
@@ -286,15 +283,15 @@ def totalScore(pred, x_test, y_test):
 
 
 if __name__ == "__main__":
+    t1 = time.time()
     trainCorpus = []
     classLabel = []
-
     classLabel = loadClassData('classLabel.txt')
-    trainCorpus = loadTrainData('trainLeft.txt')  # trainleftstop.txt'
-    # testCorpus = loadTestData('testLeft.txt')
-    length = len(classLabel)
-    # trainData=trainCorpus
-    # trainLabel=classLabel
-    # testData=testCorpus
+    trainCorpus = loadTrainData('trainLeft.txt')
+
     trainData, testData, trainLabel, testLabel = train_test_split(trainCorpus, classLabel, test_size=0.2)
+    print ("split ok")
     classifier(trainData, testData, trainLabel, testLabel)
+
+    t2 = time.time()
+    print t2 - t1, 's'
