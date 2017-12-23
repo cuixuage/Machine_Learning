@@ -19,7 +19,7 @@
 
         <!--For Plugins external css-->
         <link rel="stylesheet" href="static/css/plugins.css" />
-        <!--&lt;!&ndash;<link rel="stylesheet" href="static/css/roboto-webfont.css" />&ndash;&gt;    找不到此文件-->
+        <link rel="stylesheet" href="static/css/roboto-webfont.css" />
 
         <!--Theme custom css -->
         <link rel="stylesheet" href="static/css/style.css">
@@ -44,11 +44,11 @@
                            <p>网络数据挖掘学习使用</p>
                         </div>
                         <div class="col-md-6">
-                          
+
                         </div>
                     </div>
                 </div>
-            </div> <!-- /container -->       
+            </div> <!-- /container -->
         </section>
 
         <!--Home page style-->
@@ -61,47 +61,55 @@
                                 <div class="home-content">
 
                                     <h2>垃圾短信分类检测</h2>
-                                    
+
                                     <div class="row">
-                                        <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                                        <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
                                             <div class="home-contact">
                                                 <div class="input-group">
-												<form id = "messageTest">
-                                                    <input id = "testText" name="testText" type="text" class="form-control" placeholder="请粘贴短信内容">
-                                                    <input id= "submit"   type="button" class="form-control" value="检测">
-												</form>
+												<div id = "messageTest">
+                                                    <input id = "testText" type="text" class="form-control" placeholder="请粘贴短信内容">
+                                                    <input id= "submit"  name= "submit" type="submit" class="form-control" value="检测">
+												</div>
                                                 </div><!-- /input-group -->
-											
+
                                             </div>
-											
+
                                         </div>
                                     </div>
-                                    <div class="row">
-									    <div class = "home-contact" >
-									    <div class ="col-md-6 col-md-offset-3 col-sm-12 col-xs-12" >
-								
-									    <input id = "result" type="text" class="label-control" placeholder="检测结果" readonly="true">
-									    </div>
-									    </div>
-                                    </div>
+									<div class = "home-contact" >
+									<div class ="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" >
+
+									<input id = "result" type="text" class="label_control" placeholder="这里显示检测结果" readonly="true"><br>
+
+									</div>
+
+									</div>
+									<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+										<input id = "testLabel" type="text" class="example-control"   value="短信测试示例：">
+										<input id = "testJunk" type="text" class="example-control" readonly="true"  value="（垃圾）感谢致电杭州萧山全金釜韩国烧烤店，本店位于金城路xxx号，欢迎惠顾">
+										<input id = "testNormal" type="text"  class="example-control" readonly="true" value="（正常）苏州和无锡两地警方成功破获了一起劫持女车主的案件">
+									</div>
+
+
 
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>			
+                </div>
             </div>
         </header>
-		
+
 
         <script src="static/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="static/js/vendor/bootstrap.min.js"></script>
+
         <script src="static/js/plugins.js"></script>
         <script src="static/js/modernizr.js"></script>
         <script src="static/js/main.js"></script>
-        <!--注意 jquery的JS引用顺序在此之前-->
-        <script type="text/javascript">
+
+		<script type="text/javascript">
         $(document).ready(function() {
             $("#submit").click(function() {
                 var message = $("#testText").val();

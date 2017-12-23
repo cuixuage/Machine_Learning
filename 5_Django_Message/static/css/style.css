@@ -565,7 +565,7 @@ textarea::-ms-input-placeholder
     -ms-background-size:cover;
 }
 .home-wrapper{
-    padding:180px 0px;
+    padding:225px 0px;
     overflow:hidden;
 }
 .home-content h2{
@@ -590,6 +590,19 @@ textarea::-ms-input-placeholder
     width: 75%;
     margin-bottom: 30;
     height: 50px;
+
+}
+
+.example-control {
+    position: relative;
+    z-index: 0;
+    float: left;
+    width: 100%;
+    height: 40px;
+	background: #102429;
+	color: #fff;
+	border-width: 0px;
+	font-size: 20px;
 
 }
 
@@ -636,6 +649,17 @@ textarea::-ms-input-placeholder
     margin: 10px auto;
     padding-bottom: 20px;
 }
+
+/* label_control*/
+.label_control {
+	height: 50px;
+	background-color: #087A70;
+	text-align: center;
+	color: #DC143C;
+	font-size: 20px;
+	margin: 10px auto;
+}
+
 
 /* features  section */
 
