@@ -233,7 +233,8 @@ def classifier(trainData, testData, trainLabel, testLabel):
         t1 = time.time()
         termSet = feature_selection(trainData, trainLabel, m)
         print "len_termset：",len(termSet)
-        dictionary = termSet[:50000]
+        dictionary = termSet[:50000]                        #前50000条特征  可以保存下来  以后不必每次训练
+        
         feaTrain = word2vec(trainData, dictionary)
         feaTest = word2vec(testData, dictionary)
         print feaTrain.shape
