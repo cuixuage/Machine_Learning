@@ -147,14 +147,13 @@ def deleteBlank(content):
     content = content.replace(" ", "").replace("", "").replace("", "").replace("", "")
     return content
 
-
+#不用进行数据的预处理了  原始数据已经足够完善
 if __name__ == '__main__':
 
-    NormalContent = LoadData("../OriginTrainData_brief.txt")
-    #fwNormal = codecs.open("../LabelData.utf8", "w", "utf-8")
-    fwNormal = codecs.open("../LabelData.txt", "w", encoding = "utf-8")
-    #
-    num = 1
+    NormalContent = LoadData("./data_origin/OriginTrainData.txt")
+    #NormalContent = LoadData("./data_origin/OriginTrainData_brief.txt")
+    fwNormal = codecs.open("./data_origin/LabelData.txt", "w", encoding = "utf-8")
+    #fwNormal = codecs.open("./data_origin/LabelData_brief.txt", "w", encoding="utf-8")
     for content in NormalContent:
         #         content = deleteDoc(content)
         content = deleteBlank(content)

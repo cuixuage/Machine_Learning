@@ -8,22 +8,22 @@ from Include_alphachange import *
 
 
 def trainKeyWords(stop):
-    fr = open("../OriginTrainData.txt", 'r')
+    fr = open("./data_origin/OriginTrainData.txt", 'r')
     arrayOfLines = fr.readlines()
     for line in arrayOfLines:
         line = line.strip()
         line = line.split('\t')
         # print(line[0])
-        writeStr(line[0], 'classLabel.txt')
+        writeStr(line[0], './data_process/classLabel.txt')
         #          if line[1] == '1':
         #             writeStr(line[2],'rubbishMsg.txt')
         ustring = preProcess(line[1])
-        leftWords = cutWords(ustring, stop)
-        writeListWords(leftWords, 'trainLeft.txt')
+        leftWords = cutWords(ustring, stop)                                 # use jieba.cut  #jieba cut stopwords
+        writeListWords(leftWords, './data_process/trainLeft.txt')
 
-
+#最终测试集数据   得到jieba分词后的结果,这样的便于后面输入模型得到其label
 def loadTestData(stop):
-    fr = open("../NolabelTestData.txt")
+    fr = open("./data_origin/OriginTestData.txt")
     arrayOfLines = fr.readlines()
     for line in arrayOfLines:
         line = line.strip()
@@ -33,11 +33,11 @@ def loadTestData(stop):
             line.append('空')
         ustring = preProcess(line[0])    #change digit+character to character
         leftWords = cutWords(ustring, stop)
-        writeListWords(leftWords, 'testLeft.txt')
+        writeListWords(leftWords, './data_process/OriginTestData_left.txt')
 
 
 def loadStopWords():
-    stop = [line.strip().decode('utf-8') for line in open('./stopWord.txt').readlines()]
+    stop = [line.strip().decode('utf-8') for line in open('./data_origin/stopWord.txt').readlines()]
     return stop
 
 
@@ -74,13 +74,13 @@ def preProcess(uStr):
 
 
 def writeStr(str, filename):
-    fout = open('../data/' + filename, 'a+')
+    fout = open( filename, 'a+')
     fout.write(str + '\n')
     fout.close()
 
 
 def writeListWords(seg_list, filename):
-    fout = open('../data/' + filename, 'a+')
+    fout = open( filename, 'a+')
     wordList = list(seg_list)
     outStr = ' '
     for word in wordList:
@@ -93,5 +93,6 @@ def writeListWords(seg_list, filename):
 if __name__ == '__main__':
     '''读取训练数据和测试数据'''
     stopWords = loadStopWords()
+
     # trainKeyWords(stopWords)
     loadTestData(stopWords)

@@ -26,25 +26,25 @@ from sklearn import metrics
 
 def loadClassData(filename):
     dataList  = []
-    for line in codecs.open('../data/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
-        dataList.append(int(line.strip()))
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
+        dataList.append(int(line.strip()))  #要求编码格式为UTF-8(无BOM格式) 这样才能把stirng转化为int
     return dataList
 
 def loadTrainData(filename):
     dataList  = []
-    for line in codecs.open('../data/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
         dataList.append(line.strip())
     return dataList
 
 def loadTestData(filename):
     dataList  = []
-    for line in codecs.open('../data/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
+    for line in codecs.open('./data_process/'+filename,'r',encoding = "utf-8").readlines():#读取分类序列
         dataList.append(line.strip())
     return dataList
 
 def writeFinalRes(preLabel,filename):
-    fr = codecs.open("../NolabelTestData.txt",encoding = "utf-8")
-    fout = codecs.open('../data/' + filename, 'a+',encoding = "utf-8")
+    fr = codecs.open("./data_origin/OriginTestData.txt",encoding = "utf-8")
+    fout = codecs.open('./Result/' + filename, 'a+',encoding = "utf-8")
     arrayOfLines = fr.readlines()
     count =0
     for line in arrayOfLines:
@@ -65,29 +65,28 @@ def appendTestLabel(fout,preLabel,line,count,filename):
     fout.write(outStr + '\n')
 
 
-# #navie bayes classifier
-# def nbClassifier(trainData,testData,trainLabel):
-#     vectorizer = CountVectorizer(binary=True)
-#     fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
-#     fea_test = vectorizer.transform(testData);    #在训练语料中没有出现的词在后续调用转化方法时将被完全忽略  Not use the fit_transform
-#
-# #     tv=TfidfVectorizer()#该类会统计每个词语的tf-idf权值
-# #     fea_train = tv.fit_transform(trainData)    #return feature vector 'fea_train' [n_samples,n_features]
-# #     fea_test = tv.transform(testData);
-#
-#     # print 'Size of fea_train:' + repr(fea_train.shape)
-#     # print 'Size of fea_test:' + repr(fea_test.shape)
-#     # print fea_train.nnz
-#     # print fea_test.nnz
-#
-#     clf = MultinomialNB(alpha = 0.01)
-#     clf.fit(fea_train,np.array(trainLabel))
-#     pred = clf.predict(fea_test)
-#     writeFinalRes(pred, 'FinalResult.txt')
-
-
-def nbClassifier(trainData,testData,trainLabel,testLabel):
+##获取最终结果 写入FinalResult.txt
+def nbClassifier_getresult(trainData,testData,trainLabel):
     vectorizer = CountVectorizer(binary=True)
+    fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
+    fea_test = vectorizer.transform(testData);    #在训练语料中没有出现的词在后续调用转化方法时将被完全忽略  Not use the fit_transform
+
+#     tv=TfidfVectorizer()#该类会统计每个词语的tf-idf权值
+#     fea_train = tv.fit_transform(trainData)    #return feature vector 'fea_train' [n_samples,n_features]
+#     fea_test = tv.transform(testData);
+    # print 'Size of fea_train:' + repr(fea_train.shape)
+    # print 'Size of fea_test:' + repr(fea_test.shape)
+    # print fea_train.nnz
+    # print fea_test.nnz
+
+    clf = MultinomialNB(alpha = 0.01)
+    clf.fit(fea_train,np.array(trainLabel))
+    pred = clf.predict(fea_test)
+    writeFinalRes(pred, 'FinalResult.txt')
+
+#navie bayes classifier
+def nbClassifier(trainData,testData,trainLabel,testLabel):
+    vectorizer = CountVectorizer(binary=True)       #文本特征提取CountVectorizer
     fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
     fea_test = vectorizer.transform(testData);    #在训练语料中没有出现的词在后续调用转化方法时将被完全忽略  Not use the fit_transform
     clf = MultinomialNB(alpha = 0.01)
@@ -123,8 +122,8 @@ def totalScore(pred, x_test, y_test):
                 # foutE.close()
     # print  A, B, C, D, A + B + C + D
 
-    rb_pr = 1.0 * D / (B + D)
-    rb_re = 1.0 * D / (C + D)
+    rb_pr = 1.0 * D / (B + D)           #被预测正确的垃圾短信 占据所有被预测为垃圾短信的比例
+    rb_re = 1.0 * D / (C + D)           #被预测正确的垃圾短信 占据所有真实垃圾短信的比例
     rt_pr = 1.0 * A / (A + C)
     rt_re = 1.0 * A / (A + B)
     print  "Recall:",rb_re
@@ -141,23 +140,22 @@ if __name__ == "__main__":
 
     classLabel = loadClassData('classLabel.txt')
     trainCorpus = loadTrainData('trainLeft.txt')  # trainleftstop.txt'
-    testCorpus = loadTestData('testLeft.txt')
-    length = len(classLabel)
-    # trainData, testData, trainLabel, testLabel = train_test_split(trainCorpus, classLabel, test_size=0.2)
+    ## create the Multinomial Naive Bayesian Classifier
 
-    # trainData=trainCorpus
-    # trainLabel=classLabel
-    # testData=testCorpus
-
-    # logisticReg(trainData,testData,trainLabel,testLabel)  #98.5
-    # ldaClassifier(trainData,testData,trainLabel,testLabel) #53.5
-
+#交叉验证
     print '*************************\nNaive Bayes'
-    # create the Multinomial Naive Bayesian Classifier
-    # nbClassifier(trainData, testData, trainLabel, testLabel)
-    # nbClassifier(trainData, testData, trainLabel)
-    # t2 = time.time()
-    # print t2 - t1, 's'
-
     trainData, testData, trainLabel, testLabel = train_test_split(trainCorpus, classLabel, test_size=0.2)
     nbClassifier(trainData, testData, trainLabel,testLabel)
+    #length = len(classLabel)
+
+#获取实际结果
+    testCorpus = loadTestData('OriginTestData_left.txt')
+    trainData=trainCorpus
+    trainLabel=classLabel
+    testData=testCorpus
+    nbClassifier_getresult(trainData, testData, trainLabel)
+
+
+    t2 = time.time()
+    # print t2 - t1, 's'
+
