@@ -16,3 +16,9 @@ Eout(h) 所有实际的测试中,预测错误的概率
 
 对于某个h 当N足够大的时候  Ein等于Eout。 PAC
 对于h有限的m且N足够大 那么就能保证Ein≈Eout  ML是可行的
+
+note:
+当Hypothesis的数量有限,样本数量无限大的时候,不好的数据集出现的概率更低,说明模型的泛化能力不错。
+
+Hypothesis -》矩  e.g. PLA算法中选择的直线函数
+(此时Hypothesis是无限大的  这时候霍夫丁不等式还成立吗？ lecture 5 )
