@@ -12,7 +12,7 @@
 **Deep Learning**   
 CS231n课程笔记和作业   
 https://github.com/cuixuage/2018SpringCS231n   
-    
+  
 **Reinforcement Learning**  
 RLAI 书籍阅读和代码实现   
 https://github.com/cuixuage/Reinforcement_Learning   
@@ -25,13 +25,15 @@ https://github.com/cuixuage/Reinforcement_Learning
 > 3.不同的ML类型   
 > 4.可行性    
 > hw0: 条件概率 and 贝叶斯公式    
-> hw1: Perceptron and Pocket algorithm实现                  
+> hw1: Perceptron and Pocket algorithm实现      
+            
 *Why can Machines Learn?*     
 > 1.growthFunction,breakPoint   
 > 2.ML泛化理论   
 > 3.VC维度,边界   
 > 4.噪声和错误估计   
 > hw2:错误率 VC bound计算样本数目N   
+    
 *How can Machines Learn?*   
 > 1.线性回归,伪逆矩阵,squaredError  
 > 2.逻辑回归,sidmod函数,crossEntropyError  
