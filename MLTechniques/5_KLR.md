@@ -25,3 +25,6 @@ Err_svm 是convex函数;是err0/1的上界函数;和以log2为底的logistic Err
 W* = sum(βnZn),转换为QP二次规划求解βn的问题
 note:βn大部分不为零,而SVM的αn大部分都是零(support vector的αn!=0)
 βn非零相当于计算代价
+
+
+θ theta

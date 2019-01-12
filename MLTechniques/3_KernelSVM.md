@@ -16,7 +16,7 @@ note:
 
 2.polynomial kernel
 KQ(x,x') = (ζ + γXTX')^Q    s.t. γ>0;ζ>=0
-三个超参数=ζ常数项缩放比例,γ内积缩放比例,Q多项式最高次方
+三个超参数=ζzeta常数项缩放比例,γ内积缩放比例,Q多项式最高次方
 当Q=1,ζ=0,γ=1,是linear SVM。通过Q,large-margin限制overfit。
 
 3.gaussian kernel
@@ -28,5 +28,5 @@ note: 矩gsvm是由N个高斯函数线性组合,每个高斯函数的中心都�
 *kernel comparison*
 linear kernel
 polynomial kernel
-gaussian kernel (又称之为RBF,径向基函数,powerful)
+*gaussian kernel (又称之为RBF,径向基函数,powerful)*
 自定义kernel
