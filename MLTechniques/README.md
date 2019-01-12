@@ -7,5 +7,6 @@
 > 4.soft-margin,ξn    
 > 5.KLR,two-level-learning模拟Z域逻辑回归   
 > 6.SVR,tube regression   
-> hw1:
+> hw1:soft-margin SVM分类,linear,poly,rbf实验
      
+*How can machines learn by Combining predictive features*
