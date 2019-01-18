@@ -29,3 +29,5 @@
 > 4.小技巧,课程总结       
 >hw4:添加项regularization,验证集valiadation的实现,计算     
      
+作业参考自:
+https://acecoooool.github.io/blog/categories/MLF-MLT/

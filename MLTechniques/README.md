@@ -25,3 +25,6 @@
 > 4.linear network,alternating leastSQR  
 > 5.feature exaction,optimization,overfitting  
 > hw4:NNet 未完成,k-nearest-means,k-means   
+
+作业参考自:
+https://acecoooool.github.io/blog/categories/MLF-MLT/
