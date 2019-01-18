@@ -15,8 +15,8 @@
 > 3.decisionTree,impurity衡量   
 > 4.randomForest,feature-selection   
 > 5.GBDT,residual fitting   
-> hw2:
-> hw3:
+> hw2:Adaboost-stump 未完成
+> hw3:cart tree,random forest 未完成
    
 *how can machines learn by distilling hidden features?*
 > 1.NeuralNetwork,backprop,optimization Tricks   
@@ -24,4 +24,4 @@
 > 3.RBFnetwork,distance similarity,k-means algorithm  
 > 4.linear network,alternating leastSQR  
 > 5.feature exaction,optimization,overfitting  
-> hw4:
+> hw4:NNet 未完成,k-nearest-means,k-means   
