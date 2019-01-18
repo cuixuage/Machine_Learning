@@ -74,7 +74,7 @@ https://github.com/cuixuage/2018SpringCS231n
 RLAI 书籍阅读和代码实现   
 https://github.com/cuixuage/Reinforcement_Learning   
 
-#Rreference  
+# Rreference  
 1.机器学习基石&技法 [Prof. Hsuan-Tien Lin](https://www.csie.ntu.edu.tw/~htlin/)    
 2.深度学习CS231n [Prof. Fei-Fei Li](http://cs231n.stanford.edu/)   
 3.强化学习RLAI [Prof. Richard S.Sutton](http://incompleteideas.net/)  
