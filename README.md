@@ -8,14 +8,6 @@
 > 4.新闻推荐(未完成)    
 > 5.Django垃圾短信分类    
 > 6.爬虫   
-
-**Deep Learning**   
-CS231n课程笔记和作业   
-https://github.com/cuixuage/2018SpringCS231n   
-  
-**Reinforcement Learning**  
-RLAI 书籍阅读和代码实现   
-https://github.com/cuixuage/Reinforcement_Learning   
     
 **Machine Learning**    
 *机器学习基石&技法 课程笔记和作业*   
@@ -47,3 +39,42 @@ https://github.com/cuixuage/Reinforcement_Learning
 > 3.验证集validation作用     
 > 4.小技巧,课程总结       
 >hw4:添加项regularization,验证集valiadation的实现,计算  
+   
+*How can machines learn by Embedding numerous features*     
+> 1.线性SVM,推导非条件目标,QP求解    
+> 2.对偶SVM,非线性问题消除Z域d+1依赖     
+> 3.kernel trick仅在X域计算    
+> 4.soft-margin,ξn       
+> 5.KLR,two-level-learning模拟Z域逻辑回归      
+> 6.SVR,tube regression     
+> hw1:soft-margin SVM分类,linear,poly,rbf实验    
+        
+*How can machines learn by Combining predictive features*  
+> 1.blending,bagging,bootstrap获取多样性gt   
+> 2.adaboost,惩罚因子Ut   
+> 3.decisionTree,impurity衡量   
+> 4.randomForest,feature-selection   
+> 5.GBDT,residual fitting   
+> hw2:Adaboost-stump 未完成
+> hw3:cart tree,random forest 未完成
+   
+*how can machines learn by distilling hidden features?*
+> 1.NeuralNetwork,backprop,optimization Tricks   
+> 2.DeepLearning,pre-trained autoencoder,denoising   
+> 3.RBFnetwork,distance similarity,k-means algorithm  
+> 4.linear network,alternating leastSQR  
+> 5.feature exaction,optimization,overfitting  
+> hw4:NNet 未完成,k-nearest-means,k-means     
+   
+**Deep Learning**   
+CS231n课程笔记和作业   
+https://github.com/cuixuage/2018SpringCS231n   
+  
+**Reinforcement Learning**  
+RLAI 书籍阅读和代码实现   
+https://github.com/cuixuage/Reinforcement_Learning   
+
+#Rreference  
+1.机器学习基石&技法 [Prof. Hsuan-Tien Lin](https://www.csie.ntu.edu.tw/~htlin/)    
+2.深度学习CS231n [Prof. Fei-Fei Li](http://cs231n.stanford.edu/)   
+3.强化学习RLAI [Prof. Richard S.Sutton](http://incompleteideas.net/)  
