@@ -1,11 +1,9 @@
 # encoding=utf-8
-
 import cv2
 import time
 import logging
 import numpy as np
 import pandas as pd
-
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -17,10 +15,8 @@ def log(func):
         start_time = time.time()
         logging.debug('start %s()' % func.__name__)
         ret = func(*args, **kwargs)
-
         end_time = time.time()
         logging.debug('end %s(), cost %s seconds' % (func.__name__, end_time - start_time))
-
         return ret
 
     return wrapper
@@ -29,7 +25,7 @@ def log(func):
 # 二值化
 def binaryzation(img):
     cv_img = img.astype(np.uint8)
-    cv2.threshold(cv_img, 50, 1, cv2.THRESH_BINARY_INV, cv_img)
+    cv2.threshold(cv_img, 50, 1, cv2.THRESH_BINARY, cv_img)  # 大于阈值50被赋值1,二分类
     return cv_img
 
 
@@ -42,7 +38,6 @@ def binaryzation_features(trainset):
         img_b = binaryzation(cv_img)  # 黑白二值化处理
         # hog_feature = np.transpose(hog_feature)
         features.append(img_b)
-
     features = np.array(features)
     features = np.reshape(features, (-1, 784))
     # print("features", features.shape)  # 训练集shape (42000, 784)
@@ -51,10 +46,10 @@ def binaryzation_features(trainset):
 
 class Tree(object):
     def __init__(self, node_type, Class=None, feature=None):
-        self.node_type = node_type
-        self.dict = {}
+        self.node_type = node_type  # leaf or internal
+        self.dict = {}  # FIXME  dict_key是feature value,dict_value是subspace-tree-root节点
         self.Class = Class
-        self.feature = feature
+        self.feature = feature  # 分支条件,X维度特征,作为self.dict的key
 
     def add_tree(self, val, tree):
         self.dict[val] = tree
@@ -62,57 +57,52 @@ class Tree(object):
     def predict(self, features):
         if self.node_type == 'leaf':
             return self.Class
-
         tree = self.dict[features[self.feature]]
         return tree.predict(features)
 
 
 def calc_ent(x):
     """
-        calculate shanno ent of x
+        X的信息熵 X是train_label
+        purify越纯粹越好,意味着pk越趋近于1
     """
-
     x_value_list = set([x[i] for i in range(x.shape[0])])
     ent = 0.0
     for x_value in x_value_list:
         p = float(x[x == x_value].shape[0]) / x.shape[0]
         logp = np.log2(p)
         ent -= p * logp
-
     return ent
 
 
 def calc_condition_ent(x, y):
     """
-        calculate ent H(y|x)
+        calculate ent H(y|x=xi)  计算所有子集条件熵的和
+        x是train_set,y是train_label
     """
-
-    # calc ent(y|x)
     x_value_list = set([x[i] for i in range(x.shape[0])])
     ent = 0.0
     for x_value in x_value_list:
+        # 对于任意feature只有两种样本类型0,1;计算其信息熵
         sub_y = y[x == x_value]
         temp_ent = calc_ent(sub_y)
         ent += (float(sub_y.shape[0]) / y.shape[0]) * temp_ent
-
     return ent
 
 
 def calc_ent_grap(x, y):
     """
-        calculate ent grap
+        计算信息增益 ID3
+        x是train_set,y是父节点的train_label
     """
-
     base_ent = calc_ent(y)
     condition_ent = calc_condition_ent(x, y)
     ent_grap = base_ent - condition_ent
-
     return ent_grap
 
 
 def recurse_train(train_set, train_label, features, epsilon):
     global total_class
-
     LEAF = 'leaf'
     INTERNAL = 'internal'
 
@@ -125,20 +115,20 @@ def recurse_train(train_set, train_label, features, epsilon):
     # filter过滤函数
     (max_class, max_len) = max([(i, len(list(filter(lambda x: x == i, train_label)))) for i in range(total_class)],
                                key=lambda x: x[1])
-
-    if len(list(features)) == 0:
+    # print(type(features))
+    if len(features) == 0:
         return Tree(LEAF, Class=max_class)
 
     # 步骤3——计算信息增益
     max_feature = 0
     max_gda = 0
-
-    D = train_label
-    HD = calc_ent(D)
+    # D = train_label
+    # HD = calc_ent(train_label)
     for feature in features:
-        A = np.array(train_set[:, feature].flat)
-        gda = HD - calc_condition_ent(A, D)
-
+        # 寻找所有feature中最大的信息增益
+        A = np.array(train_set[:, feature].flat)  # 单一特征的样本集
+        # gda = HD - calc_condition_ent(A, train_label)
+        gda = calc_ent_grap(A, train_label)
         if gda > max_gda:
             max_gda, max_feature = gda, feature
 
@@ -147,21 +137,19 @@ def recurse_train(train_set, train_label, features, epsilon):
         return Tree(LEAF, Class=max_class)
 
     # 步骤5——构建非空子集
-    sub_features = filter(lambda x: x != max_feature, features)
+    sub_features = list(filter(lambda x: x != max_feature, features))  # 过滤掉max gain的feature
     tree = Tree(INTERNAL, feature=max_feature)
+    feature_col = np.array(train_set[:, max_feature].flat)  # 最大信息熵的那一列样本
+    feature_value_list = set([feature_col[i] for i in range(feature_col.shape[0])])  # 只有0和1,所以只有两个子树
 
-    feature_col = np.array(train_set[:, max_feature].flat)
-    feature_value_list = set([feature_col[i] for i in range(feature_col.shape[0])])
     for feature_value in feature_value_list:
-
+        # 对于最大熵的切割的每一个子集
         index = []
         for i in range(len(train_label)):
             if train_set[i][max_feature] == feature_value:
                 index.append(i)
-
         sub_train_set = train_set[index]
         sub_train_label = train_label[index]
-
         sub_tree = recurse_train(sub_train_set, sub_train_label, sub_features, epsilon)
         tree.add_tree(feature_value, sub_tree)
 
@@ -185,16 +173,16 @@ def predict(test_set, tree):
 if __name__ == '__main__':
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
-
     raw_data = pd.read_csv('./train.csv', header=0)
     data = raw_data.values
-
-    imgs = data[0:, 1:]
+    imgs = data[:, 1:]
     labels = data[:, 0]
     # print(imgs.shape,labels.shape)   #(42000, 784) (42000,)
 
     # 图片二值化
     features = binaryzation_features(imgs)
+    # print(np.sum(np.where(features == 1)))
+    # print(np.sum(np.where(features == 0)))
 
     # 选取 2/3 数据作为训练集， 1/3 数据作为测试集
     train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size=0.33,
@@ -205,3 +193,5 @@ if __name__ == '__main__':
     score = accuracy_score(test_labels, test_predict)
 
     print("The accruacy socre is ", score)
+    # print(test_labels.shape)
+    print(len(np.where(test_labels == test_predict)[0]) / len(test_labels))  # 相当accuracy_score function
