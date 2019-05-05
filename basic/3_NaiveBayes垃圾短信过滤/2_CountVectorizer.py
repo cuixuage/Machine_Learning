@@ -68,7 +68,7 @@ def appendTestLabel(fout,preLabel,line,count,filename):
 ##获取最终结果 写入FinalResult.txt
 def nbClassifier_getresult(trainData,testData,trainLabel):
     vectorizer = CountVectorizer(binary=True)
-    fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频
+    fea_train = vectorizer.fit_transform(trainData)  #标记和计算一个语料的词频  得到词频矩阵(稀疏的)
     fea_test = vectorizer.transform(testData);    #在训练语料中没有出现的词在后续调用转化方法时将被完全忽略  Not use the fit_transform
 
 #     tv=TfidfVectorizer()#该类会统计每个词语的tf-idf权值

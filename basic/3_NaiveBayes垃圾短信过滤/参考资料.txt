@@ -6,3 +6,8 @@ github:  多种分类方法  多种特征提取方法
 
 模型评价
 http://www.ganecheng.tech/blog/53219332.html
+
+1.jieba分词(预处理)
+2.提取文本特征
+countvectorizer将文本转化为向量
+//tfidf 将文本向量转化到tf-idf矩阵
