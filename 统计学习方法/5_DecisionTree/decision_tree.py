@@ -45,15 +45,21 @@ def binaryzation_features(trainset):
 
 
 class Tree(object):
+    """
+    dict_key是feature value是特征的取值,e.g. 0/1; 青年/中年/晚年
+    dict_value是subspace-tree-root节点
+    """
+
     def __init__(self, node_type, Class=None, feature=None):
         self.node_type = node_type  # leaf or internal
-        self.dict = {}  # FIXME  dict_key是feature value,dict_value是subspace-tree-root节点
-        self.Class = Class
-        self.feature = feature  # 分支条件,X维度特征,作为self.dict的key
+        self.dict = {}  # FIXME
+        self.Class = Class  # 只有叶子节点才有class分类的类别
+        self.feature = feature  # [0,784]之间的序号 分支条件,X维度特征
 
     def add_tree(self, val, tree):
         self.dict[val] = tree
 
+    # 单个测试样本的分类
     def predict(self, features):
         if self.node_type == 'leaf':
             return self.Class
@@ -138,7 +144,7 @@ def recurse_train(train_set, train_label, features, epsilon):
 
     # 步骤5——构建非空子集
     sub_features = list(filter(lambda x: x != max_feature, features))  # 过滤掉max gain的feature
-    tree = Tree(INTERNAL, feature=max_feature)
+    tree = Tree(INTERNAL, feature=max_feature)  # FIXME
     feature_col = np.array(train_set[:, max_feature].flat)  # 最大信息熵的那一列样本
     feature_value_list = set([feature_col[i] for i in range(feature_col.shape[0])])  # 只有0和1,所以只有两个子树
 
@@ -150,8 +156,8 @@ def recurse_train(train_set, train_label, features, epsilon):
                 index.append(i)
         sub_train_set = train_set[index]
         sub_train_label = train_label[index]
-        sub_tree = recurse_train(sub_train_set, sub_train_label, sub_features, epsilon)
-        tree.add_tree(feature_value, sub_tree)
+        sub_tree = recurse_train(sub_train_set, sub_train_label, sub_features, epsilon)  # 递归构建树
+        tree.add_tree(feature_value, sub_tree)  # FIXME
 
     return tree
 
@@ -186,9 +192,9 @@ if __name__ == '__main__':
 
     # 选取 2/3 数据作为训练集， 1/3 数据作为测试集
     train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size=0.33,
-                                                                                random_state=23323)
+                                                                                random_state=23323)  # random rate作为复现设置
 
-    tree = train(train_features, train_labels, [i for i in range(784)], 0.1)
+    tree = train(train_features, train_labels, [i for i in range(784)], 0.1)  # 信息增益值变化小于0.1
     test_predict = predict(test_features, tree)
     score = accuracy_score(test_labels, test_predict)
 
