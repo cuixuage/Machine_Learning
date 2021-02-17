@@ -1,0 +1,21 @@
+1. Transformer-XL  
+Transformer的缺点: 512字符的长度限制，无法解决long dependency问题  
+idea: segment-level, 重复使用statue  
+ 
+
+2.XLNet   
+
+  
+3.RoBerta   
+dynamic masking   (训练过程中做词语的mask)  
+
+
+4.span-bert   
+按照不同的概率，去mask不同长度的词语。 （原始bert是mask单个字）
+
+
+5.AL-Bert  (网络参数缩小化)
+5.1 factorized-embedding 将大矩阵变成两个小矩阵相乘
+5.2 cross-layer 将不同层的transformer共享参数,相当于同一层layer被计算多次
+5.3 SOP任务,注重句子之间的顺序
+5.4 removing-dropout
