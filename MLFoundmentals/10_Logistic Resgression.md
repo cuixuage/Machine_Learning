@@ -1,4 +1,12 @@
 # how can machines Learn
+
+1. Logistics regression逻辑回归   
+https://wizardforcel.gitbooks.io/ntu-hsuantienlin-ml/content/11.html
+https://huxuzhe.github.io/2018/11/20/    Logistical-regression-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92-%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/   
+核心点:   
+i.score function和线性回归、线性分类算法一样，都是使用W*Xi   
+ii.激活函数是sigmod，求其一阶导数函数   
+   
 # 逻辑回归
 *问题定义*
 e.g. 0/1的资料data下,计算患者有多大的几率患心脏病？

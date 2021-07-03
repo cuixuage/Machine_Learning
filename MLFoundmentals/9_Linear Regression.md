@@ -1,4 +1,8 @@
 # how can machines Learn   
+    
+https://wizardforcel.gitbooks.io/ntu-hsuantienlin-ml/content/10.html      
+MSE作为Loss函数，最后计算w的偏导数为零的情况    
+    
 # 线性回归   
 *问题定义*  
 use hyperplanes to approximate real values  
