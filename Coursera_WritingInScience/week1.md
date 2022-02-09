@@ -40,3 +40,8 @@ Verbs drives sentences whereas nouns slow them down.
 5.Omit needless prepositions
     删除不必要的介词。如: that, on等等
 ```
+
+本周总结:  
+1.practice cutting clutter from writing    
+删除无关的单词和词组。    
+2.Tips: 删除空洞形容词、否定词、There are等表达方式    
