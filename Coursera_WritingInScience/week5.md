@@ -24,7 +24,7 @@ i. summarize the data on higher level
 ii. 动词语态
     a. 过去语态. 因为是过去发现的内容
     b. Table shows/gives that, 等等表格内容使用现在时.
-    c. 主动语态（更加具有驱动力   ）, 而非被动语态
+    c. 主动语态（更加具有驱动力）, 而非被动语态
 ```
 
 **3.Methods**  
