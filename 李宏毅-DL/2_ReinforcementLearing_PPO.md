@@ -15,8 +15,8 @@ https://youtu.be/OAKAZhFmYoI  PPO
         直观理解: action作为分类问题来选择。  
     
 2.训练技巧tips  
-    i.Reward总是正数,会存在哪些问题？ ==> Add a Baseline Score  
-        ![dot-product](./DL_picture/PPO_3.png)   
+    i.Reward总是正数,会存在哪些问题？ ==> Add a Baseline Score   
+        ![dot-product](./DL_picture/PPO_3.png)     
     
-    ii."Reward"作为Action的权重，会存在哪些问题？ ==> Assign Suitable Credit  
+    ii."Reward"作为Action的权重，会存在哪些问题？ ==> Assign Suitable Credit   
         ![dot-product](./DL_picture/PPO_4.png)
