@@ -16,7 +16,7 @@ https://youtu.be/OAKAZhFmYoI  PPO
     
 2.训练技巧tips  
     i.Reward总是正数,会存在哪些问题？ ==> Add a Baseline Score  
-    ![dot-product](./DL_picture/PPO_3.png)   
-  
+        ![dot-product](./DL_picture/PPO_3.png)   
+    
     ii."Reward"作为Action的权重，会存在哪些问题？ ==> Assign Suitable Credit  
-    ![dot-product](./DL_picture/PPO_4.png)
+        ![dot-product](./DL_picture/PPO_4.png)
