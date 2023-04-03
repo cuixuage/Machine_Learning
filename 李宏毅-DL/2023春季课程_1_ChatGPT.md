@@ -1,3 +1,5 @@
+2023春季课程，https://speech.ee.ntu.edu.tw/~hylee/ml/2023-spring.php   
+2023春季课程_
 Chat-GPT, 基础概念课程  
 https://www.youtube.com/watch?v=e0aKI2GGZNg （GPT 社會化的過程）  
 https://www.youtube.com/watch?v=yiY4nPOzJEg （ChatGPT原理1/3）  
